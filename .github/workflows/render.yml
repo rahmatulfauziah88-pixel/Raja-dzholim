@@ -1,0 +1,38 @@
+name: Render Raja Dzolim
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate Indonesian narration (free Edge TTS)
+        run: bash scripts/generate-audio.sh
+      - name: Ensure Remotion browser
+        run: npx remotion browser ensure
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Render MP4
+        run: npm run render
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raja-dzholim-mp4
+          path: out/raja-dzholim.mp4
+          retention-days: 14
