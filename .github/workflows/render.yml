@@ -22,8 +22,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Install dependencies
         run: npm install
-      - name: Generate Indonesian narration (free Edge TTS)
-        run: bash scripts/generate-audio.sh
+      - name: Generate Indonesian narration with Fish Audio
+        env:
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: bash scripts/generate-fish-audio.sh
       - name: Ensure Remotion browser
         run: npx remotion browser ensure
       - name: Typecheck
