@@ -1,23 +1,25 @@
-# RAJA DZOLIM — Dokumenter 2 Menit
+# RAJA DZOLIM — Dokumenter sejarah 2 menit
 
-Video sejarah sinematik tentang Mihnah pada masa Al-Ma'mun, Al-Mu'tasim, Al-Wathiq, dan penghentian kebijakan pada masa Al-Mutawakkil.
+Proyek Remotion 16:9 Full HD tentang Mihnah pada masa Al-Ma'mun, Al-Mu'tasim, dan Al-Wathiq, serta perubahan kebijakan pada masa Al-Mutawakkil.
 
 ## Render
-GitHub Actions → Render Raja Dzolim → Run workflow. Hasil MP4 tersedia sebagai artifact bernama `raja-dzholim-mp4`.
+GitHub Actions → **Render Raja Dzolim** → **Run workflow**. Hasil MP4 tersedia sebagai artifact bernama `raja-dzholim-mp4`.
 
-## Narasi
-Naskah sumber: `scripts/narration.txt`. Audio dibuat otomatis menggunakan Edge TTS suara Indonesia laki-laki `id-ID-ArdiNeural`.
+## Narasi dan suara
+Naskah: `scripts/narration.txt`. Workflow membuat narasi otomatis memakai Edge TTS suara laki-laki Indonesia `id-ID-ArdiNeural`, rate -8%, pitch -3Hz. Edge TTS adalah jalur gratis tidak resmi dan dapat berubah atau dibatasi sewaktu-waktu.
 
-## Catatan sejarah
-- Mihnah dimulai pada 218 H atas perintah Al-Ma'mun.
-- Al-Mu'tasim meneruskan kebijakan; Imam Ahmad dicambuk pada 220 H.
-- Ahmad bin Nasr al-Khuza'i dihukum mati pada masa Al-Wathiq pada 231 H.
-- Kebijakan dihentikan pada masa Al-Mutawakkil; tanggal 234 H sering dipakai untuk keputusan penghentian, sedangkan pelaksanaan dan pembebasan tahanan berlangsung bertahap.
+## Kronologi dan kehati-hatian sejarah
+- 218 H: Al-Ma'mun memulai pemeriksaan para hakim dan ahli hadis tentang khalq al-Qur'an.
+- 220 H: Imam Ahmad bin Hanbal dicambuk pada masa Al-Mu'tasim.
+- 231 H: Ahmad bin Nasr al-Khuza'i dihukum mati pada masa Al-Wathiq.
+- 234 H: kebijakan Mihnah mulai dihentikan pada masa Al-Mutawakkil. Perubahan kebijakan dan pembebasan tahanan berlangsung bertahap; karena itu naskah tidak menyatakan semua proses selesai pada satu hari.
 
-## Rujukan primer
-- Al-Tabari, *Tarikh al-Rusul wa al-Muluk*, jilid 8, hlm. 631 dan seterusnya.
-- Al-Suyuti, *Tarikh al-Khulafa*, edisi Dar al-Minhaj, hlm. 489–493, 522, 529–530.
-- Ibn al-Athir, *Al-Kamil fi al-Tarikh*, peristiwa 218 H.
-- Ibn Kathir, *Al-Bidayah wa al-Nihayah*, pembahasan Mihnah.
-  
-Kutipan Arab harus dicocokkan lagi dengan edisi cetak/teks Shamela sebelum publikasi final.
+## Rujukan utama
+1. Al-Tabari, *Tarikh al-Rusul wa al-Muluk*, jilid 8, hlm. 631 dan 646 (edisi Abu al-Fadl Ibrahim).
+2. Al-Suyuti, *Tarikh al-Khulafa*, edisi Dar al-Minhaj, hlm. 489–493, 522, 529–530.
+3. Ibn al-Athir, *Al-Kamil fi al-Tarikh*, peristiwa tahun 218 H.
+4. Ibn Kathir, *Al-Bidayah wa al-Nihayah*, bagian peristiwa Mihnah.
+5. Al-Tabari, *Tarikh al-Rusul wa al-Muluk*, jilid 9, pembahasan Ahmad bin Nasr dan kebijakan Al-Mutawakkil.
+
+## Kutipan di layar
+Kutipan Arab verbatim hanya akan ditambahkan setelah dicocokkan langsung dengan teks kitab/edisi yang dipakai. Jangan menganggap ringkasan terjemahan sebagai kutipan Arab asli.
