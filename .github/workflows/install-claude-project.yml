@@ -1,0 +1,57 @@
+name: Install Claude Remotion project
+
+on:
+  push:
+    paths:
+      - ".github/workflows/install-claude-project.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  replace-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace old project with Claude ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="video-mihnah-remotion (1).zip"
+          test -s "$ZIP"
+          mkdir -p /tmp/claude-project
+          unzip -q "$ZIP" -d /tmp/claude-project
+          PROJECT="$(find /tmp/claude-project -mindepth 1 -maxdepth 2 -type f -name package.json -printf '%h\n' | head -n 1)"
+          test -n "$PROJECT"
+          test -d "$PROJECT/src"
+          test -d "$PROJECT/public"
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -exec rm -rf {} +
+          cp -a "$PROJECT"/. .
+          rm -f "$ZIP"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Replace old SVG project with Claude Remotion project"
+            git push
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript check
+        run: npm run typecheck
+
+      - name: Check images and fonts
+        run: npm run check:images
