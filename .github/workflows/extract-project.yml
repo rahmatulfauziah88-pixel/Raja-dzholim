@@ -1,0 +1,42 @@
+name: Extract Claude Remotion project
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/extract-project.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract uploaded ZIP into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP='video-mihnah-remotion (1).zip'
+          test -f "$ZIP"
+          mkdir -p /tmp/claude-project
+          unzip -q "$ZIP" -d /tmp/claude-project
+          PROJECT_DIR="$(find /tmp/claude-project -name package.json -print -quit | xargs -r dirname)"
+          test -n "$PROJECT_DIR"
+          echo "Project directory: $PROJECT_DIR"
+          find "$PROJECT_DIR" -maxdepth 2 -type f | head -60
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.github' -exec rm -rf {} +
+          cp -a "$PROJECT_DIR"/. .
+          rm -f "$ZIP"
+          git status --short
+      - name: Commit extracted project
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace old project with extracted Claude Remotion project"
+          git push origin HEAD:main
