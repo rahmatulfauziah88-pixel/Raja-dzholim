@@ -1,0 +1,47 @@
+name: Render RAJA DZOLIM
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/img/**'
+      - 'public/fonts/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'remotion.config.ts'
+      - '.github/workflows/render.yml'
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate Indonesian narration
+        env:
+          FISH_API_KEY: ${{ secrets.FISH_API_KEY }}
+        run: bash scripts/generate-fish-audio.sh
+      - name: Render MP4
+        run: npm run render
+      - name: Upload MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: raja-dzholim-mp4
+          path: out/raja-dzolim.mp4
+          if-no-files-found: error
+          retention-days: 14
