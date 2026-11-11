@@ -37,6 +37,7 @@ jobs:
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Replace old SVG project with Claude Remotion project"
+            git pull --rebase origin main
             git push
           fi
 
