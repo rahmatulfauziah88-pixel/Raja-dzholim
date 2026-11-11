@@ -40,3 +40,4 @@ jobs:
           git add -A
           git commit -m "Replace old project with extracted Claude Remotion project"
           git push origin HEAD:main
+
