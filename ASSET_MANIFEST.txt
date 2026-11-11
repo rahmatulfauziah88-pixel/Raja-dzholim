@@ -1,0 +1,33 @@
+PAKET ASET VISUAL MIHNAH
+
+01_samarra_palace_exterior.jpg
+Foto bangunan bata dan kompleks bersejarah; gunakan sebagai establishing shot kota/istana Abbasiyah. Jangan klaim bangunan spesifik tanpa verifikasi.
+
+02_archway_corridor.jpg
+Koridor lengkung bangunan bata; visual lorong istana atau transisi menuju ruang kekuasaan.
+
+03_palace_aerial_courtyard.jpg
+Foto udara kompleks bangunan/halaman; visual tata kota atau kompleks istana.
+
+04_historic_ruins_bw.jpg
+Foto hitam-putih reruntuhan/tembok; tekstur sejarah untuk adegan tekanan dan suasana kelam.
+
+05_persian_miniature_court.jpg
+Miniatur historis berisi kerumunan/adegan istana; ilustrasi periode kemudian, bukan dokumentasi Mihnah.
+
+06_persian_miniature_man.jpg
+Detail figur pada miniatur Persia; jangan identifikasi sebagai Al-Ma'mun, Al-Mu'tasim, Al-Wathiq, atau Imam Ahmad.
+
+07_samarra_historical_map.jpg
+Peta Samarra dengan label Spanyol; crop/animasi peta, terjemahkan label bila perlu dan jangan ubah lokasi.
+
+08_malwiya_minaret.jpg
+Foto menara spiral Malwiya Masjid Agung Samarra.
+
+09_stone_mihrab_inscription.jpg
+Mihrab/prasasti batu berbahasa Arab; detail artefak dan kaligrafi.
+
+10_quran_manuscript_folio.jpg
+Folio manuskrip Al-Qur'an dengan tulisan Arab; visual dokumen dan pembahasan khalq al-Qur'an.
+
+Catatan: periksa sumber dan lisensi asli tiap gambar sebelum publikasi. File gambar dari pengguna; metadata lisensi belum disertakan.
